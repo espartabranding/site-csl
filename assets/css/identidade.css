@@ -604,3 +604,16 @@ html[dir=rtl] .capa .capa-midia { right: 38%; -webkit-mask-image: linear-gradien
 html[dir=rtl] .capa .capa-midia .slide, html[dir=rtl].js.pronto .capa .capa-midia .slide { object-position: 62% 50% !important; }
 html[dir=rtl] .sobre-titulo::before { margin-right: 2px; margin-left: 30px; }
 @media (max-width: 860px) { html[dir=rtl] .capa .capa-midia { right: 0; -webkit-mask-image: none; mask-image: none; } }
+
+/* mandarim */
+html[lang=zh-CN] { --titulo: "Archivo", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; --corpo: "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+html[lang=zh-CN] body { line-height: 1.75; }
+html[lang=zh-CN] .h2, html[lang=zh-CN] .capa h1, html[lang=zh-CN] .banner h1, html[lang=zh-CN] .h3, html[lang=zh-CN] .chamada h2 { line-height: 1.35; font-weight: 700; letter-spacing: 0; }
+html[lang=zh-CN] .capa h1 { max-width: 11em; }
+html[lang=zh-CN] .capa-texto { max-width: 24em; }
+html[lang=zh-CN] .btn, html[lang=zh-CN] .nav a:not(.btn), html[lang=zh-CN] .link-seta { font-size: 15px; letter-spacing: .06em; }
+html[lang=zh-CN] .sobre-titulo { font-size: 14px; letter-spacing: .1em; }
+.idiomas b, .idiomas a { font-family: "Archivo", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+
+html[lang=zh-CN] .capa h1 { max-width: 9em; }
+html[lang=zh-CN] .capa-texto { max-width: 20em; }

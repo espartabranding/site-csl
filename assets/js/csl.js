@@ -114,7 +114,7 @@
     var linhas = document.querySelectorAll('.tabela-spec tbody tr');
 
     var LANG = document.documentElement.lang;
-    var EN = LANG === 'en' || LANG === 'ar';   // idiomas com ponto decimal
+    var EN = LANG === 'en' || LANG === 'ar' || LANG === 'zh-CN';   // idiomas com ponto decimal
     function numero(txt) { return EN ? parseFloat(String(txt).replace(/,/g, '')) : parseFloat(String(txt).replace(/\./g, '').replace(',', '.')); }
 
     function mostrar(i) {
@@ -129,11 +129,11 @@
       var ladoMoeda = (MOEDA_MM * PX_MM) / fator;
       moeda.style.width = ladoMoeda + 'px';
       moeda.style.height = ladoMoeda + 'px';
-      escala.textContent = (LANG === 'ar' ? 'المقياس 1:' : LANG === 'en' ? 'Scale 1:' : 'Escala 1:') + (fator === 1 ? '1' : (EN ? fator.toFixed(1) : fator.toFixed(1).replace('.', ',')));
+      escala.textContent = (LANG === 'zh-CN' ? '比例 1:' : LANG === 'ar' ? 'المقياس 1:' : LANG === 'en' ? 'Scale 1:' : 'Escala 1:') + (fator === 1 ? '1' : (EN ? fator.toFixed(1) : fator.toFixed(1).replace('.', ',')));
       titulo.textContent = linha[0] + (LANG === 'ar' ? ' مم' : ' mm');
       Array.prototype.forEach.call(campos, function (c) { c.textContent = linha[+c.getAttribute('data-col')]; });
       Array.prototype.forEach.call(linhas, function (tr, n) { tr.classList.toggle('ativa', n === i); });
-      faixa.setAttribute('aria-valuetext', linha[0] + (LANG === 'ar' ? ' مم' : LANG === 'en' ? ' millimetres' : ' milímetros'));
+      faixa.setAttribute('aria-valuetext', linha[0] + (LANG === 'zh-CN' ? ' 毫米' : LANG === 'ar' ? ' مم' : LANG === 'en' ? ' millimetres' : ' milímetros'));
     }
 
     faixa.addEventListener('input', function () { mostrar(+faixa.value); });
