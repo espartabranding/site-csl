@@ -529,3 +529,78 @@ footer#contato { background-color: #fff; background-image: none; color: var(--mu
 
 .btn { text-align: center; }
 @media (max-width: 620px) { .capa-acoes .btn { padding: 8px 16px; line-height: 1.25; } }
+
+/* =====================================================================
+   ÁRABE — escrita da direita para a esquerda (html[dir=rtl])
+   ===================================================================== */
+html[dir=rtl] { --titulo: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; --corpo: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; }
+html[dir=rtl] * { letter-spacing: 0 !important; }                       /* espaçamento entre letras quebra a ligação do árabe */
+html[dir=rtl] body { line-height: 1.8; }
+html[dir=rtl] .h2, html[dir=rtl] .capa h1, html[dir=rtl] .banner h1, html[dir=rtl] .h3, html[dir=rtl] .chamada h2 { line-height: 1.4; font-weight: 700; }
+html[dir=rtl] .capa h1 { max-width: 20ch; }
+html[dir=rtl] .btn, html[dir=rtl] .nav a:not(.btn), html[dir=rtl] .link-seta, html[dir=rtl] .sobre-titulo { font-size: 15px; }
+html[dir=rtl] .idiomas b, html[dir=rtl] .idiomas a { font-family: "Archivo", sans-serif; direction: ltr; }
+
+/* capa e banner espelhados: texto à direita, foto à esquerda */
+html[dir=rtl] .capa .capa-midia { left: 0; right: 20%; -webkit-mask-image: linear-gradient(270deg, transparent 0, rgba(0, 0, 0, .5) 13%, #000 32%); mask-image: linear-gradient(270deg, transparent 0, rgba(0, 0, 0, .5) 13%, #000 32%); }
+html[dir=rtl] .capa .capa-midia .slide { transform: scaleX(-1); }
+html[dir=rtl].js.pronto .capa .capa-midia .slide, html[dir=rtl].js.pronto .capa .capa-midia .slide.ativa { transform: scaleX(-1); }
+html[dir=rtl] .capa-troca { right: auto; left: var(--gutter); flex-direction: row-reverse; }
+html[dir=rtl] .banner .painel, html[dir=rtl] .banner .pernas, html[dir=rtl] .banner .capa-midia { transform: scaleX(-1); }
+html[dir=rtl].js .banner .painel { transform: scaleX(-1) translateX(-14%); }
+html[dir=rtl].js.pronto .banner .painel { transform: scaleX(-1); }
+@media (max-width: 860px) { html[dir=rtl] .capa .capa-midia { right: 0; -webkit-mask-image: none; mask-image: none; } }
+
+/* marcadores, bordas e deslocamentos que tinham lado fixo */
+html[dir=rtl] .sobre-titulo::before { margin-right: 14px; margin-left: 12px; box-shadow: -7px 0 0 var(--vermelho), -14px 0 0 var(--vermelho); }
+html[dir=rtl] .util .ic { margin-right: 0; margin-left: 6px; }
+html[dir=rtl] .idiomas { margin-right: 0; margin-left: 6px; }
+html[dir=rtl] .linha-faixa span { margin-left: 0; margin-right: auto; }
+html[dir=rtl] .link-seta::after { content: "‹"; }
+html[dir=rtl] .link-seta:hover::after { transform: translateX(-4px); }
+html[dir=rtl] .atalho { border-right: 0; border-left: 1px solid var(--linha); }
+html[dir=rtl] .atalho:last-child { border-left: 0; }
+html[dir=rtl] .atalho::after { right: auto; left: -14px; transform: skewX(22deg) translateX(-60px); }
+html[dir=rtl] .atalho:hover::after, html[dir=rtl] .atalho:focus-visible::after { transform: skewX(22deg) translateX(-8px); }
+html[dir=rtl] .ficha-item { border-right: 0; border-left: 1px solid var(--linha); }
+html[dir=rtl] .ficha-item:last-child { border-left: 0; }
+html[dir=rtl] .construcao { border-left: 1px solid var(--linha); border-right: 4px solid var(--azul); }
+html[dir=rtl] .construcao:hover { border-right-color: var(--vermelho); border-left-color: var(--linha); transform: translateX(-4px); }
+html[dir=rtl] .aplic-card:hover { transform: translateX(-4px); }
+html[dir=rtl] .valor { border-left: 0; border-right: 3px solid var(--vermelho); }
+html[dir=rtl] .valor:hover { border-right-width: 8px; }
+html[dir=rtl] .depoimento { border-left: 0; border-right: 3px solid var(--azul); }
+html[dir=rtl] .nota-linha { border-left: 0; border-right: 3px solid var(--linha); padding-left: 0; padding-right: 14px; }
+html[dir=rtl] .trajetoria { padding-left: 0; padding-right: 34px; }
+html[dir=rtl] .trajetoria::before { left: auto; right: 6px; }
+html[dir=rtl] .trajetoria li::before { left: auto; right: -33px; }
+html[dir=rtl] .prosa ul li { padding-left: 0; padding-right: 18px; }
+html[dir=rtl] .prosa ul li::before { left: auto; right: 2px; }
+html[dir=rtl] .tabela th, html[dir=rtl] .tabela td { text-align: left; }
+html[dir=rtl] .tabela th:first-child, html[dir=rtl] .tabela td:first-child { text-align: right; }
+html[dir=rtl] .tabela-spec tbody tr.ativa td:first-child { box-shadow: inset -4px 0 0 var(--vermelho); }
+html[dir=rtl] .zap { right: auto; left: 20px; }
+html[dir=rtl] .moeda { left: auto; right: 12px; }
+html[dir=rtl] .palco-escala { right: auto; left: 10px; }
+@media (min-width: 621px) { html[dir=rtl] .rodape-fim { padding-right: var(--gutter); padding-left: 190px; } }
+@media (max-width: 620px) { html[dir=rtl] .zap { left: 14px; } html[dir=rtl] .util-in { justify-content: flex-start; } }
+@media (max-width: 1080px) { html[dir=rtl] .atalho { border-left: 0; } }
+
+/* capa: travelling (a câmera desliza de lado), no lugar do zoom */
+.capa-midia .slide, .js .capa-midia .slide, .js.pronto .capa-midia .slide { transform: scale(1.1) translateX(-2.6%); transition: opacity .55s ease, transform 6.5s linear; }
+.capa-midia .slide.ativa, .js .capa-midia .slide.ativa, .js.pronto .capa-midia .slide.ativa { transform: scale(1.1) translateX(2.6%); }
+
+/* árabe: correções — nada de espelhar fotos; o link "ir para o conteúdo" não pode alargar a página */
+html[dir=rtl] { overflow-x: clip; }
+html[dir=rtl] .pula { left: auto; right: -999px; }
+html[dir=rtl] .pula:focus { right: 8px; }
+html[dir=rtl] .capa .capa-midia .slide, html[dir=rtl].js.pronto .capa .capa-midia .slide { transform: scale(1.1) translateX(2.6%); object-position: 34% 50% !important; }
+html[dir=rtl] .capa .capa-midia .slide.ativa, html[dir=rtl].js.pronto .capa .capa-midia .slide.ativa { transform: scale(1.1) translateX(-2.6%); }
+html[dir=rtl] .banner .capa-midia { transform: none; }
+html[dir=rtl] .banner .capa-midia img { object-position: 30% 50%; }
+
+/* árabe: a foto fica na metade esquerda, fora da área do texto; marcador com folga */
+html[dir=rtl] .capa .capa-midia { right: 38%; -webkit-mask-image: linear-gradient(270deg, transparent 0, rgba(0, 0, 0, .55) 16%, #000 36%); mask-image: linear-gradient(270deg, transparent 0, rgba(0, 0, 0, .55) 16%, #000 36%); }
+html[dir=rtl] .capa .capa-midia .slide, html[dir=rtl].js.pronto .capa .capa-midia .slide { object-position: 62% 50% !important; }
+html[dir=rtl] .sobre-titulo::before { margin-right: 2px; margin-left: 30px; }
+@media (max-width: 860px) { html[dir=rtl] .capa .capa-midia { right: 0; -webkit-mask-image: none; mask-image: none; } }
