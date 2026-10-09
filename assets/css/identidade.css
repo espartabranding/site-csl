@@ -449,3 +449,83 @@ footer#contato { background-color: #fff; background-image: none; color: var(--mu
   .util-contato { font-size: 13px; }
   .moeda { font-size: 0; gap: 0; }
 }
+
+/* ---------- Celular: espaçamento organizado em uma escala só (8 / 12 / 16 / 24 / 40) ---------- */
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .secao { padding: 40px 0; }
+  #linhas { padding-top: 40px; }
+  .cabeca { margin-bottom: 24px; gap: 8px; }
+  .h2 { font-size: 25px; }
+  .lead { font-size: 16px; }
+  .sobre-titulo { font-size: 12px; }
+
+  .capa-in { padding-top: 40px; padding-bottom: 104px; }
+  .capa h1 { font-size: 29px; margin-top: 12px; }
+  .capa-texto { font-size: 16px; margin-top: 16px; }
+  .capa-acoes { margin-top: 24px; gap: 12px; flex-direction: column; }
+  .capa-acoes .btn { width: 100%; min-height: 50px; }
+  .capa-troca { bottom: 76px; }
+
+  .atalho { padding: 16px 12px; gap: 4px; }
+  .atalho .ic { width: 32px; height: 32px; margin-bottom: 4px; }
+  .atalho b { font-size: 14.5px; }
+  .atalho span { font-size: 13px; }
+
+  .linhas { gap: 16px; }
+  .linha-faixa { padding: 12px 16px; }
+  .linha-corpo { padding: 16px; gap: 12px; }
+  .linha-corpo p { font-size: 15px; }
+
+  .aplic-grade { gap: 12px; }
+  .aplic-card { grid-template-columns: 104px 1fr; }
+  .aplic-faixa { padding: 12px; font-size: 13px; }
+  .aplic-card p { padding: 8px 12px 12px; font-size: 14px; }
+  #aplicacoes .btn { width: 100%; }
+
+  .construcoes { gap: 12px; }
+  .construcao { padding: 16px; gap: 2px 12px; }
+  .construcao .h3 { font-size: 17px; }
+  .construcao p { margin-top: 8px; font-size: 15px; }
+
+  .catalogos { gap: 12px; }
+  .catalogo { padding: 12px; gap: 16px; grid-template-columns: 68px 1fr; }
+  .catalogo img { width: 68px; height: 98px; }
+
+  .rodape-colunas { gap: 24px; padding-top: 32px; padding-bottom: 24px; grid-template-columns: 1fr 1fr; }
+  .rodape-colunas > div:first-child, .rodape-colunas > div:last-child { grid-column: 1 / -1; }
+  .rodape-fim { padding-bottom: 84px; }
+
+  .banner-in { padding-top: 24px; padding-bottom: 72px; min-height: 0; }
+  .banner h1 { font-size: 28px; margin-top: 8px; }
+  .banner-sub { font-size: 17px; }
+  .ficha { margin-top: -48px; }
+  .ficha-item { padding: 12px 16px; }
+  .prod-grid { gap: 32px; }
+  .amostra { padding: 12px; margin-bottom: 24px; }
+  .carac { gap: 8px; grid-template-columns: 1fr; margin-top: 12px; }
+  .carac li { padding: 12px; gap: 12px; }
+  .seletor { padding: 16px; }
+  .palco { height: 220px; }
+  .leitura > div { flex: 1 1 120px; padding: 10px 12px; }
+  .leitura dd { font-size: 22px; }
+  .tabela th, .tabela td { padding: 8px 10px; font-size: 14px; }
+  .irmaos li { padding: 12px 0; flex-direction: column; gap: 2px; }
+  .depoimento { padding: 16px; }
+
+  .faixa-azul { padding: 40px 0; }
+  .intro { gap: 32px; }
+  .trajetoria { gap: 16px; }
+  .valores { margin-top: 32px; gap: 12px; }
+  .valor { padding: 16px; }
+  .qualidade { margin-top: 32px; padding: 16px; }
+  .qualidade-docs .btn { width: 100%; }
+  .chamada-in { padding-top: 32px; padding-bottom: 32px; gap: 16px; }
+  .chamada .btn { width: 100%; }
+  .idiomas b, .idiomas a { padding: 3px 6px; gap: 4px; }
+  .util-contato { display: none; }
+  .util-in { justify-content: flex-end; }
+}
+
+.btn { text-align: center; }
+@media (max-width: 620px) { .capa-acoes .btn { padding: 8px 16px; line-height: 1.25; } }
