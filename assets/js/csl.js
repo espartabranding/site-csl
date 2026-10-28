@@ -76,7 +76,7 @@
 
   // revelação ao rolar: cada bloco entra uma vez; irmãos entram em sequência
   var seletores = '.intro > div, .trajetoria li, .sierra > *, .sierra-bloco, .cabeca, .linha-card, .aplic-card, .construcao, .empresa > *, .valor, .qualidade, .catalogo, .contato > *, ' +
-    '.prod-grid > *, .tabela-rol, .depoimento, .irmaos, .chamada-in, .ficha-in, .creditos';
+    '.prod-grid > *, .tabela-rol, .depoimento, .irmaos, .chamada-in, .ficha-in, .creditos, .ind-lista li, .ind-placa';
   var blocos = Array.prototype.slice.call(document.querySelectorAll(seletores));
   blocos.forEach(function (el) {
     el.setAttribute('data-rev', '');
