@@ -76,7 +76,7 @@
 
   // revelação ao rolar: cada bloco entra uma vez; irmãos entram em sequência
   var seletores = '.intro > div, .trajetoria li, .sierra > *, .sierra-bloco, .cabeca, .linha-card, .aplic-card, .construcao, .empresa > *, .valor, .qualidade, .catalogo, .contato > *, ' +
-    '.prod-grid > *, .tabela-rol, .depoimento, .irmaos, .chamada-in, .ficha-in, .creditos, .desemp, .oper, .sierra-extra > div';
+    '.prod-grid > *, .tabela-rol, .depoimento, .irmaos, .chamada-in, .ficha-in, .creditos';
   var blocos = Array.prototype.slice.call(document.querySelectorAll(seletores));
   blocos.forEach(function (el) {
     el.setAttribute('data-rev', '');
@@ -96,17 +96,6 @@
     blocos.forEach(function (el) { obs.observe(el); });
   } else {
     blocos.forEach(revelar);
-  }
-
-  // vitrine: a foto do cabo corre devagar para a esquerda enquanto a página desce
-  var faixaCabo = document.querySelector('.vitrine-faixa img');
-  if (faixaCabo && !semMovimento) {
-    var correr = function () {
-      var y = Math.min(window.scrollY || 0, 1200);
-      faixaCabo.style.setProperty('--pan', (-y / 1200 * 0.14 * window.innerWidth).toFixed(1) + 'px');
-    };
-    window.addEventListener('scroll', correr, { passive: true });
-    correr();
   }
 
   // seletor de diâmetro: a seção é desenhada em milímetros CSS (1 mm = 96/25,4 px)
