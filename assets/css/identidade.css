@@ -617,3 +617,107 @@ html[lang=zh-CN] .sobre-titulo { font-size: 14px; letter-spacing: .1em; }
 
 html[lang=zh-CN] .capa h1 { max-width: 9em; }
 html[lang=zh-CN] .capa-texto { max-width: 20em; }
+
+/* =====================================================================
+   VITRINE — página de produto com a foto real do cabo em destaque
+   ===================================================================== */
+.vitrine { position: relative; overflow: hidden; color: #fff; background: linear-gradient(160deg, #16234a 0%, #22366e 100%); }
+.vitrine .pernas i:nth-child(1) { clip-path: polygon(84% 0, 85.2% 0, 80.2% 34%, 79% 34%); }
+.vitrine .pernas i:nth-child(2) { clip-path: polygon(86% 0, 87.2% 0, 82.2% 34%, 81% 34%); }
+.vitrine .pernas i:nth-child(3) { clip-path: polygon(88% 0, 89.2% 0, 84.2% 34%, 83% 34%); }
+.vitrine-in { position: relative; z-index: 2; padding-top: 34px; }
+.vitrine .sobre-titulo { color: #9cc8ea; margin-top: 30px; }
+.vitrine h1 { font-family: var(--titulo); font-stretch: 116%; font-weight: 800; font-size: clamp(54px, 9.5vw, 136px); line-height: .92; letter-spacing: -.03em; margin-top: 12px; }
+.vitrine-sub { font-family: var(--titulo); font-stretch: 116%; font-weight: 500; font-size: clamp(17px, 1.8vw, 23px); color: #c9d4ea; margin-top: 12px; }
+
+/* a faixa com a foto do cabo atravessa a tela inteira */
+.vitrine-cabo { position: relative; z-index: 2; margin: 24px 0 0; padding: 70px 0; }
+.vitrine-faixa { position: relative; overflow: hidden; height: clamp(110px, 20vw, 300px); box-shadow: 0 36px 50px -22px rgba(0, 0, 0, .7); }
+.vitrine-faixa img { width: calc(100% + 14vw); max-width: none; height: 100%; object-fit: cover; transform: translateX(var(--pan, 0px)); will-change: transform; }
+.vitrine-faixa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255, 255, 255, .12), transparent 30%, transparent 75%, rgba(0, 0, 0, .18)); pointer-events: none; }
+.js .vitrine-faixa { clip-path: inset(0 100% 0 0); }
+.js.pronto .vitrine-faixa { clip-path: inset(0 0 0 0); transition: clip-path 1.5s var(--suave) .25s; }
+
+/* etiquetas com linha de chamada até o cabo */
+.etiquetas { position: absolute; inset: 0; pointer-events: none; }
+.etiqueta { position: absolute; left: var(--x); }
+.etiqueta span { display: block; max-width: 32ch; font-family: var(--titulo); font-stretch: 116%; font-weight: 600; font-size: 12.5px; line-height: 1.35; letter-spacing: .07em; text-transform: uppercase; color: #fff; padding-left: 12px; border-left: 3px solid var(--vermelho); }
+.etiqueta::before { content: ""; position: absolute; left: 0; width: 1px; height: 64px; background: rgba(255, 255, 255, .75); }
+.etiqueta::after { content: ""; position: absolute; left: -5px; width: 11px; height: 11px; border-radius: 50%; background: var(--vermelho); border: 2px solid #fff; box-shadow: 0 0 0 5px rgba(229, 49, 32, .3); }
+.etiqueta-cima { top: 6px; }
+.etiqueta-cima::before { top: calc(100% + 6px); }
+.etiqueta-cima::after { top: calc(100% + 66px); }
+.etiqueta-baixo { bottom: 6px; }
+.etiqueta-baixo::before { bottom: calc(100% + 6px); }
+.etiqueta-baixo::after { bottom: calc(100% + 66px); }
+.js .etiqueta { opacity: 0; transform: translateY(8px); }
+.js.pronto .etiqueta { opacity: 1; transform: none; transition: opacity .6s var(--suave) 1.5s, transform .6s var(--suave) 1.5s; }
+.js.pronto .etiqueta + .etiqueta { transition-delay: 1.75s; }
+
+.vitrine-pe { position: relative; z-index: 2; display: grid; gap: 24px 56px; padding-top: 8px; padding-bottom: 100px; }
+.vitrine-chamada { font-family: var(--titulo); font-stretch: 116%; font-weight: 700; font-size: clamp(20px, 2.1vw, 27px); line-height: 1.2; color: #fff; margin-bottom: 10px; }
+.vitrine-pe p:not(.vitrine-chamada) { color: #c9d4ea; max-width: 64ch; }
+.vitrine-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.vitrine-acoes .ic { width: 18px; height: 18px; }
+@media (min-width: 900px) { .vitrine-pe { grid-template-columns: 1fr auto; align-items: end; } }
+@media (max-width: 760px) {
+  .vitrine-cabo { padding: 0; }
+  .vitrine-faixa { height: 150px; }
+  .etiquetas { position: static; display: grid; gap: 10px; padding: 20px var(--gutter) 0; }
+  .etiqueta { position: static; }
+  .etiqueta::before, .etiqueta::after { display: none; }
+  .vitrine-pe { padding-top: 24px; }
+}
+
+.ficha-vitrine .ficha-in { grid-template-columns: repeat(4, 1fr); }
+.ficha-vitrine dd small { font-size: .62em; font-weight: 600; color: var(--mudo); }
+@media (max-width: 860px) { .ficha-vitrine .ficha-in { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .ficha-vitrine .ficha-in { grid-template-columns: 1fr; } }
+
+/* desempenho: níveis em pernas inclinadas */
+.desemp { display: grid; gap: 40px; }
+@media (min-width: 960px) { .desemp { grid-template-columns: 1.15fr 1fr; gap: 72px; } }
+.niveis { border-top: 2px solid var(--azul); }
+.niveis li { display: grid; grid-template-columns: 1fr auto; gap: 10px 16px; padding: 16px 0 18px; border-bottom: 1px solid var(--linha); }
+.niveis span { font-weight: 600; color: var(--azul-escuro); }
+.niveis em { font-style: normal; font-family: var(--titulo); font-stretch: 116%; font-weight: 700; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--azul); }
+.barra { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; padding-left: 4px; }
+.barra b { height: 12px; background: var(--azul-claro); transform: skewX(var(--inclina)); transform-origin: left; }
+.barra b.on { background: var(--azul); transition: transform .5s var(--suave); }
+.barra b.on:nth-child(2) { transition-delay: .1s; }
+.barra b.on:nth-child(3) { transition-delay: .2s; }
+.barra b.on:nth-child(4) { transition-delay: .3s; background: var(--vermelho); }
+.js .desemp:not(.visivel) .barra b.on { transform: skewX(var(--inclina)) scaleX(0); }
+.dados-tec { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; border-top: 2px solid var(--azul); align-content: start; }
+.dados-tec div { padding: 14px 0; border-bottom: 1px solid var(--linha); }
+.dados-tec dt { font-family: var(--titulo); font-stretch: 116%; font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--mudo); }
+.dados-tec dd { font-family: var(--titulo); font-stretch: 116%; font-weight: 700; font-size: 19px; color: var(--azul-escuro); margin-top: 2px; }
+@media (max-width: 480px) { .dados-tec { grid-template-columns: 1fr; } }
+
+/* anatomia (Sierra) */
+.subcabos { background: #fff; padding: 12px 12px 8px; max-width: 470px; margin-top: 10px; }
+.subcabos img { width: 100%; height: auto; }
+.subcabos figcaption { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; font-size: 13.5px; color: var(--mudo); margin-top: 6px; }
+.sierra-extra { display: grid; gap: 28px 56px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, .22); }
+@media (min-width: 960px) { .sierra-extra { grid-template-columns: 1fr 1fr; } }
+.sierra-extra .rotulo-claro { margin-top: 0; }
+.sierra-extra p:not(.rotulo-claro) { color: #c9d4ea; margin-top: 12px; }
+.ensaios { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.ensaios li { font-size: 14.5px; border: 1px solid rgba(255, 255, 255, .35); color: #fff; padding: 4px 12px; border-radius: 3px; }
+
+/* em operação: mosaico de fotos */
+.operacao { display: grid; gap: 14px; }
+.oper { position: relative; overflow: hidden; margin: 0; background: var(--azul-escuro); }
+.oper img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .7s var(--suave); }
+.oper:hover img { transform: scale(1.04); }
+.oper figcaption { position: absolute; left: 0; bottom: 0; max-width: calc(100% - 24px); background: rgba(22, 35, 74, .9); color: #fff; font-size: 14.5px; padding: 8px 14px; border-left: 3px solid var(--vermelho); }
+@media (min-width: 860px) {
+  .operacao { grid-template-columns: 1.25fr 1fr; grid-auto-rows: 270px; }
+  .oper:first-child { grid-row: span 2; }
+  .oper img { aspect-ratio: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .vitrine-faixa, .js .etiqueta { clip-path: none !important; opacity: 1 !important; transform: none !important; }
+  .js .desemp:not(.visivel) .barra b.on { transform: skewX(var(--inclina)); }
+  .vitrine-faixa img { transform: none !important; }
+}
