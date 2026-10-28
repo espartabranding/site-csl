@@ -775,3 +775,13 @@ html[lang=zh-CN] .capa-texto { max-width: 20em; }
 .cat-topo-in { padding-top: clamp(34px, 4vw, 60px); }
 .cat-titulo { margin-top: clamp(30px, 3.6vw, 52px); }
 .cat-cabo { margin-top: clamp(64px, 8vw, 124px); }
+
+/* travelling lento da foto de fundo do topo: atravessa devagar e volta, sem pressa */
+.cat-fundo { transform-origin: 50% 50%; animation: cat-travelling 40s ease-in-out infinite alternate; will-change: transform; }
+@keyframes cat-travelling { from { transform: scale(1.12) translateX(-3.5%); } to { transform: scale(1.12) translateX(3.5%); } }
+@media (prefers-reduced-motion: reduce) { .cat-fundo { animation: none; transform: none; } }
+
+/* o cabo passa continuamente da direita para a esquerda, como se estivesse sendo recolhido */
+.cat-cabo { --h: clamp(110px, 13vw, 200px); height: var(--h); animation: cabo-passando var(--dur, 60s) linear infinite; }
+@keyframes cabo-passando { from { background-position: 0 50%; } to { background-position: calc(var(--h) * var(--prop) * -1) 50%; } }
+@media (prefers-reduced-motion: reduce) { .cat-cabo { animation: none; } }
